@@ -1,4 +1,4 @@
-package gui;
+package gUI;
 
 import java.awt.EventQueue;
 
@@ -17,7 +17,6 @@ import javax.swing.JTextField;
 public class Main {
 
 	private JFrame frame;
-	
 	private JTextField textField;
 
 	/**

@@ -1,4 +1,4 @@
-package gui;
+package gUI;
 
 import java.awt.EventQueue;
 
@@ -9,6 +9,9 @@ import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JPasswordField;
+import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class InsertPin {
 
@@ -43,18 +46,28 @@ public class InsertPin {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.getContentPane().setBackground(new Color(0, 102, 102));
 		frame.setBounds(100, 100, 600, 400);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JLabel lblInsertPin = new JLabel("Please Insert Pin");
+		lblInsertPin.setForeground(new Color(255, 255, 255));
 		lblInsertPin.setHorizontalAlignment(SwingConstants.CENTER);
-		lblInsertPin.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		lblInsertPin.setFont(new Font("Arial Black", Font.PLAIN, 30));
 		lblInsertPin.setBounds(10, 11, 564, 50);
 		frame.getContentPane().add(lblInsertPin);
 		
 		
 		JButton btnNewButton = new JButton("Enter");
+		btnNewButton.setForeground(Color.WHITE);
+		btnNewButton.setBackground(new Color(0, 0, 153));
+		btnNewButton.setOpaque(true);
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnNewButton.setForeground(new Color(255, 255, 255));
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnNewButton.setBounds(196, 228, 200, 50);
 		frame.getContentPane().add(btnNewButton);
@@ -65,5 +78,17 @@ public class InsertPin {
 		passwordField.setBounds(196, 136, 200, 44);
 		passwordField.setDocument(new LimitDocument(4));
 		frame.getContentPane().add(passwordField);
+	}
+
+	public void NewScreen() {
+		// TODO Auto-generated method stub
+		EventQueue.invokeLater(new Runnable() {
+			
+			public void run() {
+				// TODO Auto-generated method stub
+				InsertPin pin=new InsertPin();
+				pin.frame.setVisible(true);
+			}
+		});
 	}
 }
