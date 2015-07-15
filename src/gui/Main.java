@@ -12,10 +12,12 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.SystemColor;
+import javax.swing.JTextField;
 
 public class Main {
 
 	private JFrame frame;
+	private JTextField textField;
 
 	/**
 	 * Launch the application.
@@ -60,7 +62,7 @@ public class Main {
 		JLabel lblNewLabel_1 = new JLabel("Please Insert Card");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1.setBounds(10, 142, 564, 34);
+		lblNewLabel_1.setBounds(10, 115, 564, 34);
 		frame.getContentPane().add(lblNewLabel_1);
 		
 		JButton btnNewButton = new JButton("Insert");
@@ -71,8 +73,14 @@ public class Main {
 		});
 		btnNewButton.setBackground(new Color(0, 128, 128));
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnNewButton.setBounds(198, 239, 200, 50);
+		btnNewButton.setBounds(197, 281, 200, 50);
 		frame.getContentPane().add(btnNewButton);
+		
+		textField = new JTextField();
+		textField.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		textField.setBounds(197, 190, 200, 44);
+		frame.getContentPane().add(textField);
+		textField.setColumns(10);
+		textField.setDocument(new LimitDocument(16));
 	}
-
 }
