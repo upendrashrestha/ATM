@@ -17,5 +17,6 @@ public interface IBank  {
 	public void drawAmount(Account account,double amount);
 	public void depositAmount(Account account,double amount);
 	public void changePin(Account account, String pin);
+	public boolean authenticatePin(String pin) ;
 	//public void printReceipt();
 	}

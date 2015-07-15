@@ -41,4 +41,12 @@ public class BankFacade implements IBank {
 
 	}
 
+
+
+	@Override
+	public boolean authenticatePin(String pin) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

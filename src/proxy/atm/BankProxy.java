@@ -49,5 +49,13 @@ public class BankProxy implements IBank {
 		this.realBankSubject.changePin(account, pin);
 
 	}
+	@Override
+	public boolean authenticatePin(String pin) {
+		if(this.realBankSubject==null)
+		{
+			this.realBankSubject=new BankFacade();
+		}
+		return this.realBankSubject.authenticatePin(pin);
+	}
 
 }

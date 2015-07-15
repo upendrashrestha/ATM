@@ -2,9 +2,12 @@ package command;
 
 public class RequestInvoker {
 		
-	public void executeAction(ICommand cmd)
+	private boolean flag;
+	
+	public boolean executeAction(ICommand cmd)
 	{
-		cmd.execute();
+		return cmd.execute();
+		
 	}
 	
 	public void undoAction(ICommand cmd)
