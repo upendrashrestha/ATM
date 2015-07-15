@@ -17,6 +17,7 @@ import javax.swing.JTextField;
 public class Main {
 
 	private JFrame frame;
+	
 	private JTextField textField;
 
 	/**
