@@ -4,19 +4,25 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+
 import java.awt.Font;
+
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JPasswordField;
+
+import states.ATM.ATMContext;
+
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class InsertPin {
 
-	private JFrame frame;
+	JFrame frame;
 	private JPasswordField passwordField;
+	private ATMContext atm;
 
 	/**
 	 * Launch the application.
@@ -65,6 +71,22 @@ public class InsertPin {
 		btnNewButton.setOpaque(true);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+
+				atm = ATMContext.getInstance();
+				boolean isSuccess = atm.insertPin(passwordField.getText());
+				
+				if(isSuccess){
+					
+					frame.dispose(); //closes the window--cannot be recovered
+					AccountSelect selectAc = new AccountSelect();
+					selectAc.NewScreen();
+				}
+				else{
+					
+					frame.dispose(); //closes the window--cannot be recovered
+					Main main = new Main();
+					main.NewScreen();
+				}
 			}
 		});
 		btnNewButton.setForeground(new Color(255, 255, 255));
@@ -82,12 +104,13 @@ public class InsertPin {
 
 	public void NewScreen() {
 		// TODO Auto-generated method stub
+		
 		EventQueue.invokeLater(new Runnable() {
 			
 			public void run() {
 				// TODO Auto-generated method stub
-				InsertPin pin=new InsertPin();
-				pin.frame.setVisible(true);
+				InsertPin insertPin=new InsertPin();
+				insertPin.frame.setVisible(true);
 			}
 		});
 	}

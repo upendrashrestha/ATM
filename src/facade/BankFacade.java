@@ -1,16 +1,18 @@
 package facade;
 
+import extendedClass.ATMCustomer;
+import extendedClass.Customer;
 import proxy.atm.IBank;
 import interfaceClass.Account;
 
 public class BankFacade implements IBank {
-	
+
 	public BankFacade(){
 		processing();
 	}
-	
-	
-	
+
+
+
 	public void processing()
 	{
 		System.out.println("Processing!...");
@@ -25,13 +27,13 @@ public class BankFacade implements IBank {
 	@Override
 	public void drawAmount( Account account,double amount) {
 		account.deductBalance(amount);
-		
+
 	}
 
 	@Override
 	public void depositAmount(Account account, double amount) {
 		account.addBalance(amount);
-		
+
 
 	}
 
@@ -45,7 +47,19 @@ public class BankFacade implements IBank {
 
 	@Override
 	public boolean authenticatePin(String pin) {
-		// TODO Auto-generated method stub
+
+		Customer atmCust = ATMCustomer.getAtmCustomer();
+		if (atmCust == null){
+			
+			System.out.println("atmCust:" + atmCust);
+		}
+		String custPin = ATMCustomer.getAtmCustomer().getPin();
+		System.out.println("custPin:" + custPin);
+		if(pin.equals(custPin)){
+
+			return true;
+		}
+
 		return false;
 	}
 

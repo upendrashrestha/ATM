@@ -5,9 +5,12 @@ import java.awt.EventQueue;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+
 import java.awt.BorderLayout;
+
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
+
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -17,10 +20,14 @@ import java.awt.Window;
 
 import javax.swing.JTextField;
 
+import states.ATM.ATMContext;
+import states.ATM.Data;
+
 public class Main {
 
 	private JFrame frame;
 	private JTextField textField;
+	private ATMContext atm;
 	
 	private InsertPin insertpin;
 
@@ -44,6 +51,7 @@ public class Main {
 	 * Create the application.
 	 */
 	public Main() {
+		
 		initialize();
 	}
 
@@ -74,14 +82,18 @@ public class Main {
 		lblNewLabel_1.setBounds(10, 115, 564, 34);
 		frame.getContentPane().add(lblNewLabel_1);
 		
+		textField = new JTextField();
 		JButton btnNewButton = new JButton("Insert");
 		btnNewButton.setForeground(Color.WHITE);
 		btnNewButton.setOpaque(true);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
+				atm = ATMContext.getInstance();
+				atm.insertCard(textField.getText());
+				
 				frame.dispose(); //closes the window--cannot be recovered
-				insertpin=new InsertPin();
+				insertpin = new InsertPin();
 				insertpin.NewScreen();
 				
 			}
@@ -91,7 +103,6 @@ public class Main {
 		btnNewButton.setBounds(197, 281, 200, 50);
 		frame.getContentPane().add(btnNewButton);
 		
-		textField = new JTextField();
 		textField.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		textField.setBounds(197, 190, 200, 44);
 		frame.getContentPane().add(textField);
@@ -103,4 +114,23 @@ public class Main {
 		lblNewLabel_2.setBounds(33, 160, 154, 138);
 		frame.getContentPane().add(lblNewLabel_2);
 	}
+	
+	public void NewScreen() {
+		// TODO Auto-generated method stub
+
+		EventQueue.invokeLater(new Runnable() {
+
+			public void run() {
+				// TODO Auto-generated method stub
+				Main main = new Main();
+				main.frame.setVisible(true);
+			}
+		});
+	}
+
+	
+	
+	
+	
+	
 }
