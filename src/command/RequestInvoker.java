@@ -1,13 +1,13 @@
 package command;
 
 public class RequestInvoker {
-	ICommand cmd;
-	public void executeAction()
+		
+	public void executeAction(ICommand cmd)
 	{
 		cmd.execute();
 	}
 	
-	public void undoAction()
+	public void undoAction(ICommand cmd)
 	{
 		cmd.undo();
 	}
