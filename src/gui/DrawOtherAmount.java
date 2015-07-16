@@ -77,7 +77,7 @@ public class DrawOtherAmount {
 		textField.setBounds(82, 142, 415, 71);
 		frame.getContentPane().add(textField);
 		textField.setColumns(10);
-		textField.setDocument(new LimitDocument(3));
+		textField.setDocument(new LimitDocument(5));
 
 		JButton btnOk = new JButton("Ok");
 		btnOk.addActionListener(new ActionListener() {
