@@ -1,19 +1,35 @@
 package visitor;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Map;
 
 public class MoneyParser {
 
 	
-	private List<MoneyElement> listMoneyElement;// = new
-												// ArrayList<MoneyElement>();
+	private Map<MoneyElement, Integer> moneyMap = new HashMap<MoneyElement, Integer>();
+	
 
-	public double calculateMoney() {
-		MoneyVisitor money = new MoneyVisitor();
-		for (MoneyElement m : listMoneyElement) {
-			m.accept(money);
+	public double calculateMoney(Map<MoneyElement, Integer> moneyMap) {
+		
+		MoneyVisitor moneyVisitor = new MoneyVisitor();
+		List<MoneyElement> moneyList = new ArrayList<MoneyElement>(moneyMap.keySet());
+		
+		for (MoneyElement money : moneyList) {
+			
+			money.accept(moneyVisitor, moneyMap.get(money));
 		}
-		return money.getTotalValue();
+	
+		return moneyVisitor.getTotalValue();
 	}
+	
+	public Map<MoneyElement, Integer> getMoneyMap() {
+		return moneyMap;
+	}
+
+	public void setMoneyMap(Map<MoneyElement, Integer> moneyMap) {
+		this.moneyMap = moneyMap;
+	}
+	
 }
