@@ -47,9 +47,8 @@ public class ATMContext {
 	}
 
 	
-	public void drawAmount() {
-		// TODO Auto-generated method stub
-		
+	public void drawAmount(Double amount) {
+		this.currentState.drawAmount(atmContext,amount);
 	}
 
 	

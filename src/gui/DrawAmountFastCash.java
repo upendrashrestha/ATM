@@ -5,13 +5,21 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+
 import java.awt.Font;
+
 import javax.swing.JButton;
+
+import states.ATM.ATMContext;
+
 import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class DrawAmountFastCash {
 
 	private JFrame frame;
+	private ATMContext atmContext;
 
 	/**
 	 * Launch the application.
@@ -54,6 +62,15 @@ public class DrawAmountFastCash {
 		frame.getContentPane().add(lblNewLabel);
 		
 		JButton btnDraw = new JButton("$20");
+		btnDraw.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				double amount=20;
+				atmContext=atmContext.getInstance();
+				atmContext.drawAmount(amount);
+				
+				
+			}
+		});
 		btnDraw.setBackground(new Color(0, 0, 153));
 		btnDraw.setForeground(new Color(255, 255, 255));
 		btnDraw.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -61,6 +78,14 @@ public class DrawAmountFastCash {
 		frame.getContentPane().add(btnDraw);
 		
 		JButton button = new JButton("$40");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				double amount=40;
+				atmContext=atmContext.getInstance();
+				atmContext.drawAmount(amount);
+			}
+		});
 		button.setForeground(new Color(255, 255, 255));
 		button.setBackground(new Color(0, 0, 153));
 		button.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -68,6 +93,14 @@ public class DrawAmountFastCash {
 		frame.getContentPane().add(button);
 		
 		JButton btnOthers = new JButton("Other");
+		btnOthers.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				frame.dispose(); //closes the window--cannot be recovered
+				DrawOtherAmount drawOthers = new DrawOtherAmount();
+				drawOthers.NewScreen();
+			}
+		});
 		btnOthers.setBackground(new Color(0, 0, 153));
 		btnOthers.setForeground(new Color(255, 255, 255));
 		btnOthers.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -76,12 +109,10 @@ public class DrawAmountFastCash {
 	}
 	
 	public void NewScreen() {
-		// TODO Auto-generated method stub
 
 		EventQueue.invokeLater(new Runnable() {
 
 			public void run() {
-				// TODO Auto-generated method stub
 				DrawAmountFastCash drawAmountFastCash = new DrawAmountFastCash();
 				drawAmountFastCash.frame.setVisible(true);
 			}

@@ -7,65 +7,67 @@ public class BankProxy extends ABank {
 
 	BankFacade realBankSubject;
 
-	public BankProxy()
-	{
-		this.realBankSubject=new BankFacade();
+	public BankProxy() {
+		this.realBankSubject = new BankFacade();
 	}
+
 	@Override
 	public void checkBalance() {
-		if(this.realBankSubject==null)
-		{
-			this.realBankSubject=new BankFacade();
+		if (this.realBankSubject == null) {
+			this.realBankSubject = new BankFacade();
 		}
 		this.realBankSubject.checkBalance();
 		this.balance = realBankSubject.balance;
 	}
 
 	@Override
-	public void drawAmount(Account account,double amount) {
-		if(this.realBankSubject==null)
-		{
-			this.realBankSubject=new BankFacade();
+	public void drawAmount(double amount) {
+		if (this.realBankSubject == null) {
+			this.realBankSubject = new BankFacade();
 		}
-		this.realBankSubject.drawAmount(account,amount);
+		this.realBankSubject.drawAmount(amount);
+		if (realBankSubject.isSuccess()) {
+
+			setSuccess(true);
+		} else {
+
+			setSuccess(false);
+		}
 
 	}
 
 	@Override
-	public void depositAmount(Account account, double amount) {
-		if(this.realBankSubject==null)
-		{
-			this.realBankSubject=new BankFacade();
+	public void depositAmount(double amount) {
+		if (this.realBankSubject == null) {
+			this.realBankSubject = new BankFacade();
 		}
-		this.realBankSubject.depositAmount(account, amount);
+		this.realBankSubject.depositAmount(amount);
 
 	}
 
 	@Override
-	public void changePin(Account account, String pin) {
-		if(this.realBankSubject==null)
-		{
-			this.realBankSubject=new BankFacade();
+	public void changePin(String pin) {
+		if (this.realBankSubject == null) {
+			this.realBankSubject = new BankFacade();
 		}
-		this.realBankSubject.changePin(account, pin);
+		this.realBankSubject.changePin(pin);
 
 	}
+
 	@Override
 	public void authenticatePin(String pin) {
-		if(this.realBankSubject==null)
-		{
-			this.realBankSubject=new BankFacade();
+		if (this.realBankSubject == null) {
+			this.realBankSubject = new BankFacade();
 		}
-	 this.realBankSubject.authenticatePin(pin);
-	 
-	 if(realBankSubject.isSuccess()){
-		 
-		 setSuccess(true);
-	 }
-	 else{
-		 
-		 setSuccess(false);
-	 }
+		this.realBankSubject.authenticatePin(pin);
+
+		if (realBankSubject.isSuccess()) {
+
+			setSuccess(true);
+		} else {
+
+			setSuccess(false);
+		}
 	}
 
 }

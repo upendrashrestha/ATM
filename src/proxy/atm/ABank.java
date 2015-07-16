@@ -17,9 +17,9 @@ public abstract class ABank  {
 	protected double balance = 0;
 	
 	public abstract void checkBalance();
-	public abstract void drawAmount(Account account,double amount);
-	public abstract void depositAmount(Account account,double amount);
-	public abstract void changePin(Account account, String pin);
+	public abstract void drawAmount(double amount);
+	public abstract void depositAmount(double amount);
+	public abstract void changePin(String pin);
 	public abstract void authenticatePin(String pin) ;
 	//public void printReceipt();
 	

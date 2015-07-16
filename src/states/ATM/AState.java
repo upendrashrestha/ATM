@@ -9,7 +9,7 @@ public abstract class AState {
 	public abstract void insertCard(ATMContext atmContext, String string);
 	public abstract boolean insertPin(ATMContext atmContext, String pin);
 	public abstract double checkBalance(ATMContext atmContext);
-	public abstract void drawAmount(ATMContext atmContext);
+	public abstract void drawAmount(ATMContext atmContext,Double amount);
 	public abstract void depositAmount(ATMContext atmContext);
 	public abstract void changePin(ATMContext atmContext);
 	public abstract void payUtility(ATMContext atmContext);

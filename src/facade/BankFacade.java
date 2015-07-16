@@ -27,21 +27,24 @@ public class BankFacade extends ABank {
 	}
 
 	@Override
-	public void drawAmount( Account account,double amount) {
-		account.deductBalance(amount);
+	public void drawAmount( double amount) {
+		atmCustomer = ATMCustomer.getAtmCustomer();
+		atmCustomer.getAccount().deductBalance(amount);
+		setSuccess(true);
+	}
+
+	@Override
+	public void depositAmount( double amount) {
+		atmCustomer = ATMCustomer.getAtmCustomer();
+		atmCustomer.getAccount().addBalance(amount);
+
 
 	}
 
 	@Override
-	public void depositAmount(Account account, double amount) {
-		account.addBalance(amount);
-
-
-	}
-
-	@Override
-	public void changePin(Account account, String pin) {
-		account.changePin(pin);
+	public void changePin( String pin) {
+		atmCustomer = ATMCustomer.getAtmCustomer();
+		atmCustomer.getAccount().changePin(pin);
 
 	}
 
