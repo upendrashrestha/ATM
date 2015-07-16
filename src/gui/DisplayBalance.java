@@ -8,6 +8,12 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 import javax.swing.JButton;
+
+import extendedClass.ATMCustomer;
+import extendedClass.Customer;
+
+import states.ATM.ATMContext;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -36,6 +42,11 @@ public class DisplayBalance {
 	 * Create the application.
 	 */
 	public DisplayBalance() {
+		initialize();
+	}
+
+	public DisplayBalance(String balance) {
+		this.balance = balance;
 		initialize();
 	}
 
@@ -74,18 +85,24 @@ public class DisplayBalance {
 		lblNewLabel_3.setForeground(new Color(255, 255, 255));
 		lblNewLabel_3.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		lblNewLabel_3.setBounds(264, 174, 215, 50);
+		Customer cust = ATMCustomer.getAtmCustomer();
+		lblNewLabel_3.setText(cust.getAccount().getName());
 		frame.getContentPane().add(lblNewLabel_3);
 		
 		JLabel lblNewLabel_4 = new JLabel("total balance");
 		lblNewLabel_4.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		lblNewLabel_4.setForeground(new Color(255, 255, 255));
 		lblNewLabel_4.setBounds(264, 235, 215, 40);
-	//	lblNewLabel_4.setText(this.balance);
+		lblNewLabel_4.setText(this.balance);
 		frame.getContentPane().add(lblNewLabel_4);
 		
 		JButton btnNewButton = new JButton("Exit");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
+				frame.dispose(); //closes the window--cannot be recovered
+				LastTranscation last = new LastTranscation();
+				last.NewScreen();
 			}
 		});
 		btnNewButton.setBackground(new Color(0, 0, 153));
@@ -95,13 +112,12 @@ public class DisplayBalance {
 		frame.getContentPane().add(btnNewButton);
 	}
 	
-	public void NewScreen() {
+	public void NewScreen(final String balance) {
 
-		//this.balance = Double.toString(balance);
 		EventQueue.invokeLater(new Runnable() {
 
 			public void run() {
-				DisplayBalance displaybalance = new DisplayBalance();
+				DisplayBalance displaybalance = new DisplayBalance(balance);
 				displaybalance.frame.setVisible(true);
 			}
 		});

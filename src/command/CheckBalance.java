@@ -10,12 +10,10 @@ public class CheckBalance implements ICommand {
 		this.bankProxy = bankProxy;
 	}
 
-	@Override
 	public void execute() {
 		 bankProxy.checkBalance();
 	}
 
-	@Override
 	public void undo() {
 		// TODO Auto-generated method stub
 		

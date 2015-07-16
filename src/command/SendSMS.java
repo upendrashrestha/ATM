@@ -2,13 +2,10 @@ package command;
 
 public class SendSMS implements ICommand {
 
-	@Override
-	public boolean execute() {
+	public void execute() {
 		// TODO Auto-generated method stub
-		return false;
 	}
 
-	@Override
 	public void undo() {
 		// TODO Auto-generated method stub
 		

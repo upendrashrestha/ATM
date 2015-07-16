@@ -8,12 +8,10 @@ import chainOfResponsibility.AMoneyCounter;
 public class TenDollar extends AMoneyCounter implements MoneyElement {
 
 	
-	@Override
 	public void accept(IVisitor visitor, Integer number) {
 		visitor.visit(this, number);		
 	}
 
-	@Override
 	public double getValue() {
 		// TODO Auto-generated method stub
 		return 10;

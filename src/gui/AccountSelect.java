@@ -76,7 +76,7 @@ public class AccountSelect {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				frame.dispose(); //closes the window--cannot be recovered
-				Transcation chkBalance = new Transcation();
+				Transaction chkBalance = new Transaction();
 				chkBalance.NewScreen();
 			}
 		});

@@ -73,4 +73,17 @@ public class Last {
 		lblNewLabel_3.setBounds(10, 111, 564, 89);
 		frame.getContentPane().add(lblNewLabel_3);
 	}
+	
+	public void NewScreen() {
+		// TODO Auto-generated method stub
+
+		EventQueue.invokeLater(new Runnable() {
+
+			public void run() {
+				// TODO Auto-generated method stub
+				Last last = new Last();
+				last.frame.setVisible(true);
+			}
+		});
+	}
 }

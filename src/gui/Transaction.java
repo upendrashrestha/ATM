@@ -67,7 +67,7 @@ public class Transaction {
 				
 				frame.dispose(); //closes the window--cannot be recovered
 				DisplayBalance dispBal = new DisplayBalance();
-				dispBal.NewScreen();
+				dispBal.NewScreen(Double.toString(balance));
 			}
 		});
 		btnCheckBalance.setFont(new Font("Tahoma", Font.PLAIN, 20));

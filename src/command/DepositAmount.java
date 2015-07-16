@@ -17,14 +17,12 @@ public class DepositAmount implements ICommand{
 		this.moneyParser = moneyParser;
 	}
 
-	@Override
 	public void execute() {
 		Map<MoneyElement, Integer> money = Random.generateMoneyMap();
 		
 		moneyParser.calculateMoney(money);
 	}
 
-	@Override
 	public void undo() {
 		// TODO Auto-generated method stub
 		

@@ -13,13 +13,11 @@ public class AuthenticatePin implements ICommand {
 		this.bankProxy = bankProxy;
 	}
 
-	@Override
 	public void execute() {
 
 		bankProxy.authenticatePin(pin);
 	}
 
-	@Override
 	public void undo() {
 		// TODO Auto-generated method stub
 
