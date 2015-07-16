@@ -50,7 +50,7 @@ public class DrawAmountFastCash {
 		lblNewLabel.setForeground(new Color(255, 255, 255));
 		lblNewLabel.setFont(new Font("Arial Black", Font.BOLD, 30));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(10, 60, 564, 35);
+		lblNewLabel.setBounds(10, 60, 564, 43);
 		frame.getContentPane().add(lblNewLabel);
 		
 		JButton btnDraw = new JButton("$20");

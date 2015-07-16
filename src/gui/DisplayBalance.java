@@ -7,6 +7,9 @@ import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class DisplayBalance {
 
@@ -77,6 +80,32 @@ public class DisplayBalance {
 		lblNewLabel_4.setForeground(new Color(255, 255, 255));
 		lblNewLabel_4.setBounds(264, 235, 215, 40);
 		frame.getContentPane().add(lblNewLabel_4);
+		
+		JButton btnNewButton = new JButton("Exit");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnNewButton.setBackground(new Color(0, 0, 153));
+		btnNewButton.setForeground(new Color(255, 255, 255));
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnNewButton.setBounds(435, 301, 125, 50);
+		frame.getContentPane().add(btnNewButton);
+	}
+	
+	public void NewScreen() {
+		// TODO Auto-generated method stub
+
+		EventQueue.invokeLater(new Runnable() {
+
+			public void run() {
+				// TODO Auto-generated method stub
+				DisplayBalance displaybalance = new DisplayBalance();
+				displaybalance.frame.setVisible(true);
+			}
+		});
 	}
 
+	
+	
 }
