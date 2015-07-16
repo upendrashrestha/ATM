@@ -54,7 +54,7 @@ public class DrawAmount implements ICommand {
 
 			System.out.println();
 			System.out.println("Draw Amount");
-			System.out.println("Dollars" + "\t" + "Denominations");
+			System.out.println("Dollars" + "\t" + "\t" + "Denominations");
 			for (MoneyElement money : moneyList) {
 
 				System.out.println(money.getClass().getSimpleName() + "\t"

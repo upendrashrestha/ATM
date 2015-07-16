@@ -9,13 +9,20 @@ import java.awt.Color;
 import javax.swing.JLabel;
 
 import java.awt.Font;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import javax.swing.SwingConstants;
+
+import states.ATM.ATMContext;
 
 public class messageDialog {
 
 	private JFrame frame;
-
+	static int interval;
+	static Timer timer;
+	private ATMContext atmContext;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -63,6 +70,41 @@ public class messageDialog {
 		frame.setBounds(100, 100, 600, 400);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setResizable(false);
+		
+		int secs = 5;
+		int delay = 1000;
+		int period = 1000;
+		
+		timer = new Timer();
+		interval = secs;
+		//System.out.println(secs);
+		timer.scheduleAtFixedRate(new TimerTask() {
+
+			public void run() {
+			//	System.out.println(setInterval());
+				setInterval();
+				
+				if(interval == 0)
+				{
+					timer.cancel();
+					frame.dispose(); //closes the window--cannot be recovered
+					atmContext = ATMContext.getInstance();
+					double balance = atmContext.checkBalance();
+
+					
+					DisplayBalance dispBal = new DisplayBalance();
+					dispBal.NewScreen(Double.toString(balance));
+				}
+
+			}
+		}, delay, period);
+
+	}
+	
+	private static final int setInterval() {
+		if (interval == 1)
+			timer.cancel();
+		return --interval;
 	}
 	
 	public void NewScreen() {

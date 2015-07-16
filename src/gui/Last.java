@@ -85,14 +85,17 @@ public class Last {
 		
 		timer = new Timer();
 		interval = secs;
-		System.out.println(secs);
+	//	System.out.println(secs);
 		timer.scheduleAtFixedRate(new TimerTask() {
 
 			public void run() {
-				System.out.println(setInterval());
 				
+				//System.out.println(setInterval());
+				
+				setInterval();
 				if(interval==0)
 				{
+					timer.cancel();
 					frame.dispose(); //closes the window--cannot be recovered
 					Main main = new Main();
 					main.NewScreen();

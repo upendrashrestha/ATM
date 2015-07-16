@@ -55,7 +55,7 @@ public class Transaction {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		frame.setResizable(false);
-		
+
 		JLabel lblNewLabel = new JLabel("Check Balance");
 		lblNewLabel.setForeground(new Color(255, 255, 255));
 		lblNewLabel.setBackground(new Color(255, 255, 255));
@@ -63,16 +63,16 @@ public class Transaction {
 		lblNewLabel.setFont(new Font("Arial Black", Font.BOLD, 30));
 		lblNewLabel.setBounds(10, 44, 564, 63);
 		frame.getContentPane().add(lblNewLabel);
-		
+
 		JButton btnCheckBalance = new JButton("Check Balance");
 		btnCheckBalance.setBackground(new Color(0, 0, 153));
 		btnCheckBalance.setForeground(new Color(255, 255, 255));
 		btnCheckBalance.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
+
 				atmContext = ATMContext.getInstance();
 				double balance = atmContext.checkBalance();
-				
+
 				frame.dispose(); //closes the window--cannot be recovered
 				DisplayBalance dispBal = new DisplayBalance();
 				dispBal.NewScreen(Double.toString(balance));
@@ -81,13 +81,13 @@ public class Transaction {
 		btnCheckBalance.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnCheckBalance.setBounds(355, 156, 202, 50);
 		frame.getContentPane().add(btnCheckBalance);
-		
+
 		JButton btnDrawAmount = new JButton("Draw Amount");
 		btnDrawAmount.setBackground(new Color(0, 0, 153));
 		btnDrawAmount.setForeground(new Color(255, 255, 255));
 		btnDrawAmount.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
+
 				frame.dispose();
 				fastCash = new DrawAmountFastCash();
 				fastCash.NewScreen();
@@ -96,26 +96,27 @@ public class Transaction {
 		btnDrawAmount.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnDrawAmount.setBounds(33, 156, 202, 50);
 		frame.getContentPane().add(btnDrawAmount);
-		
+
 		JButton btnUtilityPayment = new JButton("Utility Payment");
 		btnUtilityPayment.setBackground(new Color(0, 0, 153));
 		btnUtilityPayment.setForeground(new Color(255, 255, 255));
 		btnUtilityPayment.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnUtilityPayment.setBounds(355, 260, 202, 50);
 		frame.getContentPane().add(btnUtilityPayment);
-		
+
 		JButton btnDepositAmount = new JButton("Deposit Amount");
 		btnDepositAmount.setBackground(new Color(0, 0, 153));
 		btnDepositAmount.setForeground(new Color(255, 255, 255));
 		btnDepositAmount.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
-				//atmContext = ATMContext.getInstance();
-				//atmContext.depositAmount();
+
+				atmContext = ATMContext.getInstance();
+				atmContext.depositAmount();
+
 				frame.dispose();
 				messageDialog message = new messageDialog();
 				message.NewScreen();
-				
+
 			}
 		});
 		btnDepositAmount.setFont(new Font("Tahoma", Font.PLAIN, 20));
