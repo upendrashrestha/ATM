@@ -1,7 +1,17 @@
 package states.ATM;
 
-public class LoggedIn implements IState{
+import proxy.atm.BankProxy;
+import proxy.atm.ABank;
+import visitor.MoneyParser;
+import command.CheckBalance;
+import command.DepositAmount;
+import command.ICommand;
 
+public class LoggedIn extends AState{
+
+	BankProxy bankProxy = new BankProxy();
+	MoneyParser moneyParser = new MoneyParser();
+	
 	@Override
 	public void insertCard(ATMContext atmContext, String string) {
 		// TODO Auto-generated method stub
@@ -15,21 +25,26 @@ public class LoggedIn implements IState{
 	}
 
 	@Override
-	public void checkBalance(ATMContext atmContext) {
-		// TODO Auto-generated method stub
+	public double checkBalance(ATMContext atmContext) {
 		
+		ICommand checkBalance = new CheckBalance(bankProxy);
+		invoker.executeAction(checkBalance);
+		System.out.println("bankProxy.getBalance():" + bankProxy.getBalance());
+		return bankProxy.getBalance();
 	}
 
 	@Override
 	public void drawAmount(ATMContext atmContext) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
 	@Override
 	public void depositAmount(ATMContext atmContext) {
-		// TODO Auto-generated method stub
 		
+		ICommand depositAmount = new DepositAmount(moneyParser);
+		
+		invoker.executeAction(depositAmount);
 	}
 
 	@Override

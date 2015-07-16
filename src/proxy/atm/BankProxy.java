@@ -3,21 +3,22 @@ package proxy.atm;
 import facade.BankFacade;
 import interfaceClass.Account;
 
-public class BankProxy implements IBank {
+public class BankProxy extends ABank {
 
 	BankFacade realBankSubject;
-	
+
 	public BankProxy()
 	{
 		this.realBankSubject=new BankFacade();
 	}
 	@Override
-	public void checkBalance(Account account) {
+	public void checkBalance() {
 		if(this.realBankSubject==null)
 		{
 			this.realBankSubject=new BankFacade();
 		}
-		this.realBankSubject.checkBalance(account);
+		this.realBankSubject.checkBalance();
+		this.balance = realBankSubject.balance;
 	}
 
 	@Override
@@ -50,12 +51,21 @@ public class BankProxy implements IBank {
 
 	}
 	@Override
-	public boolean authenticatePin(String pin) {
+	public void authenticatePin(String pin) {
 		if(this.realBankSubject==null)
 		{
 			this.realBankSubject=new BankFacade();
 		}
-		return this.realBankSubject.authenticatePin(pin);
+	 this.realBankSubject.authenticatePin(pin);
+	 
+	 if(realBankSubject.isSuccess()){
+		 
+		 setSuccess(true);
+	 }
+	 else{
+		 
+		 setSuccess(false);
+	 }
 	}
 
 }

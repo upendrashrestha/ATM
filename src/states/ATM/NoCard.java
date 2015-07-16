@@ -3,13 +3,13 @@ package states.ATM;
 import extendedClass.ATMCustomer;
 import extendedClass.Customer;
 
-public class NoCard implements IState{
+public class NoCard extends AState{
 
 	@Override
 	public void insertCard(ATMContext atmContext, String card) {
 		
-		Customer atmCustomer = ATMCustomer.getInstance(card);
-		System.out.println("atmCustomer:" + atmCustomer.getCard());
+		ATMCustomer.getInstance(card);
+
 		atmContext.setCurrentState(atmContext.getHasCard());
 		
 	}
@@ -21,9 +21,9 @@ public class NoCard implements IState{
 	}
 
 	@Override
-	public void checkBalance(ATMContext atmContext) {
+	public double checkBalance(ATMContext atmContext) {
 		// TODO Auto-generated method stub
-		
+		return 0;
 	}
 
 	@Override

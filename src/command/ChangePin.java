@@ -3,9 +3,7 @@ package command;
 public class ChangePin implements ICommand{
 
 	@Override
-	public boolean execute() {
-		// TODO Auto-generated method stub
-		return false;
+	public void execute() {
 	}
 
 	@Override

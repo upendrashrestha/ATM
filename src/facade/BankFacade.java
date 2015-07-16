@@ -2,16 +2,16 @@ package facade;
 
 import extendedClass.ATMCustomer;
 import extendedClass.Customer;
-import proxy.atm.IBank;
+import proxy.atm.ABank;
 import interfaceClass.Account;
 
-public class BankFacade implements IBank {
+public class BankFacade extends ABank {
 
+	private Customer atmCustomer;
+	
 	public BankFacade(){
 		processing();
 	}
-
-
 
 	public void processing()
 	{
@@ -19,9 +19,11 @@ public class BankFacade implements IBank {
 	}
 
 	@Override
-	public void checkBalance(Account account) {
-		// TODO Auto-generated method stub
-		System.out.println("Total Balance : "+account.getBalance());
+	public void checkBalance() {
+
+		atmCustomer = ATMCustomer.getAtmCustomer();
+		
+		this.balance = atmCustomer.getAccount().getBalance();
 	}
 
 	@Override
@@ -44,23 +46,17 @@ public class BankFacade implements IBank {
 	}
 
 
-
 	@Override
-	public boolean authenticatePin(String pin) {
+	public void authenticatePin(String pin) {
 
 		Customer atmCust = ATMCustomer.getAtmCustomer();
-		if (atmCust == null){
-			
-			System.out.println("atmCust:" + atmCust);
-		}
-		String custPin = ATMCustomer.getAtmCustomer().getPin();
-		System.out.println("custPin:" + custPin);
-		if(pin.equals(custPin)){
+		if(pin.equals(atmCust.getPin())){
 
-			return true;
+			setSuccess(true);
+			return;
 		}
 
-		return false;
+		setSuccess(false);
 	}
 
 }

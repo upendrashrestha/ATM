@@ -14,10 +14,11 @@ import javax.swing.JButton;
 
 import states.ATM.ATMContext;
 
-public class CheckBalance {
+public class Transaction {
 
 	private JFrame frame;
 	private ATMContext atmContext;
+	private DrawAmountFastCash fastCash;
 
 	/**
 	 * Launch the application.
@@ -26,7 +27,7 @@ public class CheckBalance {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					CheckBalance window = new CheckBalance();
+					Transaction window = new Transaction();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -38,7 +39,7 @@ public class CheckBalance {
 	/**
 	 * Create the application.
 	 */
-	public CheckBalance() {
+	public Transaction() {
 		initialize();
 	}
 
@@ -62,7 +63,11 @@ public class CheckBalance {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				atmContext = ATMContext.getInstance();
-				atmContext.checkBalance();
+				double balance = atmContext.checkBalance();
+				
+				frame.dispose(); //closes the window--cannot be recovered
+				DisplayBalance dispBal = new DisplayBalance();
+				dispBal.NewScreen();
 			}
 		});
 		btnCheckBalance.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -70,6 +75,13 @@ public class CheckBalance {
 		frame.getContentPane().add(btnCheckBalance);
 		
 		JButton btnDrawAmount = new JButton("Draw Amount");
+		btnDrawAmount.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				fastCash = new DrawAmountFastCash();
+				fastCash.NewScreen();
+			}
+		});
 		btnDrawAmount.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnDrawAmount.setBounds(33, 136, 202, 50);
 		frame.getContentPane().add(btnDrawAmount);
@@ -80,19 +92,25 @@ public class CheckBalance {
 		frame.getContentPane().add(btnUtilityPayment);
 		
 		JButton btnDepositAmount = new JButton("Deposit Amount");
+		btnDepositAmount.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				atmContext = ATMContext.getInstance();
+				atmContext.depositAmount();
+			}
+		});
 		btnDepositAmount.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnDepositAmount.setBounds(33, 228, 202, 50);
 		frame.getContentPane().add(btnDepositAmount);
 	}
 
 	public void NewScreen() {
-		// TODO Auto-generated method stub
 
 		EventQueue.invokeLater(new Runnable() {
 
 			public void run() {
-				// TODO Auto-generated method stub
-				CheckBalance chkBalance = new CheckBalance();
+
+				Transaction chkBalance = new Transaction();
 				chkBalance.frame.setVisible(true);
 			}
 		});

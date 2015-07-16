@@ -1,11 +1,18 @@
 package command;
 
+import proxy.atm.ABank;
+
 public class CheckBalance implements ICommand {
 
+	private ABank bankProxy;
+	
+	public CheckBalance(ABank bankProxy) {
+		this.bankProxy = bankProxy;
+	}
+
 	@Override
-	public boolean execute() {
-		// TODO Auto-generated method stub
-		return false;
+	public void execute() {
+		 bankProxy.checkBalance();
 	}
 
 	@Override

@@ -3,14 +3,14 @@ package states.ATM;
 public class ATMContext {
 
 	private static ATMContext atmContext = new ATMContext();
-	private IState noCard;
-	private IState hasCard;
-	private IState loggedIn;
-	private IState hasMoney;
-	private IState noMoney;
-	private IState damage;
+	private AState noCard;
+	private AState hasCard;
+	private AState loggedIn;
+	private AState hasMoney;
+	private AState noMoney;
+	private AState damage;
 	
-	private IState currentState;
+	private AState currentState;
 
 	private ATMContext() {
 		
@@ -40,8 +40,9 @@ public class ATMContext {
 	}
 
 	
-	public void checkBalance() {
-		// TODO Auto-generated method stub
+	public double checkBalance() {
+		 
+		return this.currentState.checkBalance(this);
 		
 	}
 
@@ -53,8 +54,8 @@ public class ATMContext {
 
 	
 	public void depositAmount() {
-		// TODO Auto-generated method stub
 		
+		this.currentState.depositAmount(this);
 	}
 
 	
@@ -93,59 +94,59 @@ public class ATMContext {
 		
 	}
 
-	public IState getCurrentState() {
+	public AState getCurrentState() {
 		return currentState;
 	}
 
-	public void setCurrentState(IState currentState) {
+	public void setCurrentState(AState currentState) {
 		this.currentState = currentState;
 	}
 
-	public IState getNoCard() {
+	public AState getNoCard() {
 		return noCard;
 	}
 
-	public void setNoCard(IState noCard) {
+	public void setNoCard(AState noCard) {
 		this.noCard = noCard;
 	}
 
-	public IState getHasCard() {
+	public AState getHasCard() {
 		return hasCard;
 	}
 
-	public void setHasCard(IState hasCard) {
+	public void setHasCard(AState hasCard) {
 		this.hasCard = hasCard;
 	}
 
-	public IState getLoggedIn() {
+	public AState getLoggedIn() {
 		return loggedIn;
 	}
 
-	public void setLoggedIn(IState loggedIn) {
+	public void setLoggedIn(AState loggedIn) {
 		this.loggedIn = loggedIn;
 	}
 
-	public IState getHasMoney() {
+	public AState getHasMoney() {
 		return hasMoney;
 	}
 
-	public void setHasMoney(IState hasMoney) {
+	public void setHasMoney(AState hasMoney) {
 		this.hasMoney = hasMoney;
 	}
 
-	public IState getNoMoney() {
+	public AState getNoMoney() {
 		return noMoney;
 	}
 
-	public void setNoMoney(IState noMoney) {
+	public void setNoMoney(AState noMoney) {
 		this.noMoney = noMoney;
 	}
 
-	public IState getDamage() {
+	public AState getDamage() {
 		return damage;
 	}
 
-	public void setDamage(IState damage) {
+	public void setDamage(AState damage) {
 		this.damage = damage;
 	}
 	

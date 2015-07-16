@@ -1,23 +1,22 @@
 package command;
 
-import proxy.atm.IBank;
+import proxy.atm.ABank;
 
 public class AuthenticatePin implements ICommand {
-	
-	private String pin;
-	private IBank bankProxy;
-	
 
-	public AuthenticatePin(String pin, IBank bankProxy) {
-		
+	private String pin;
+	private ABank bankProxy;
+
+	public AuthenticatePin(String pin, ABank bankProxy) {
+
 		this.pin = pin;
 		this.bankProxy = bankProxy;
 	}
 
 	@Override
-	public boolean execute() {
-		// TODO Auto-generated method stub
-		return bankProxy.authenticatePin(pin);
+	public void execute() {
+
+		bankProxy.authenticatePin(pin);
 	}
 
 	@Override

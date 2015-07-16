@@ -14,6 +14,7 @@ import java.awt.event.ActionEvent;
 public class DisplayBalance {
 
 	private JFrame frame;
+	private String balance;
 
 	/**
 	 * Launch the application.
@@ -79,6 +80,7 @@ public class DisplayBalance {
 		lblNewLabel_4.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		lblNewLabel_4.setForeground(new Color(255, 255, 255));
 		lblNewLabel_4.setBounds(264, 235, 215, 40);
+	//	lblNewLabel_4.setText(this.balance);
 		frame.getContentPane().add(lblNewLabel_4);
 		
 		JButton btnNewButton = new JButton("Exit");
@@ -94,12 +96,11 @@ public class DisplayBalance {
 	}
 	
 	public void NewScreen() {
-		// TODO Auto-generated method stub
 
+		//this.balance = Double.toString(balance);
 		EventQueue.invokeLater(new Runnable() {
 
 			public void run() {
-				// TODO Auto-generated method stub
 				DisplayBalance displaybalance = new DisplayBalance();
 				displaybalance.frame.setVisible(true);
 			}

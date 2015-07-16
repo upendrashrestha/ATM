@@ -1,12 +1,15 @@
 package command;
 
+import java.util.Stack;
+
 public class RequestInvoker {
 		
-	private boolean flag;
+	private Stack cmdStack = new Stack<ICommand>();
 	
-	public boolean executeAction(ICommand cmd)
+	public void executeAction(ICommand cmd)
 	{
-		return cmd.execute();
+		cmdStack.push(cmd);
+		cmd.execute();
 		
 	}
 	

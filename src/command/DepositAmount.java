@@ -11,12 +11,10 @@ import visitor.MoneyParser;
 public class DepositAmount implements ICommand{
 
 	private MoneyParser moneyParser;
-	private double amount;
 	
-	public DepositAmount(MoneyParser moneyParser, double amount) {
+	public DepositAmount(MoneyParser moneyParser){
 
 		this.moneyParser = moneyParser;
-		this.amount = amount;
 	}
 
 	@Override

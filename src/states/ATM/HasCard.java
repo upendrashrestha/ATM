@@ -1,17 +1,14 @@
 package states.ATM;
 
-import gui.AccountSelect;
-import gui.Main;
 import command.AuthenticatePin;
 import command.ICommand;
 import command.RequestInvoker;
 import proxy.atm.BankProxy;
-import proxy.atm.IBank;
+import proxy.atm.ABank;
 
-public class HasCard implements IState{
+public class HasCard extends AState{
 
-	IBank bankProxy = new BankProxy();
-	RequestInvoker invoker = new RequestInvoker();
+	BankProxy bankProxy = new BankProxy();
 	
 	@Override
 	public void insertCard(ATMContext atmContext, String card) {
@@ -23,8 +20,10 @@ public class HasCard implements IState{
 
 		// User insert pin and press Enter
 		ICommand authenticatePin = new AuthenticatePin(pin, bankProxy);
-		boolean isSuccess = invoker.executeAction(authenticatePin);
+		invoker.executeAction(authenticatePin);
 		
+		boolean isSuccess = bankProxy.isSuccess();
+
 		if(isSuccess){
 			
 			atmContext.setCurrentState(atmContext.getLoggedIn());
@@ -38,9 +37,9 @@ public class HasCard implements IState{
 	}
 
 	@Override
-	public void checkBalance(ATMContext atmContext) {
+	public double checkBalance(ATMContext atmContext) {
 		// TODO Auto-generated method stub
-		
+		return 0;
 	}
 
 	@Override
