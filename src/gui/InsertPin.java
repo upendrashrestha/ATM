@@ -56,6 +56,7 @@ public class InsertPin {
 		frame.setBounds(100, 100, 600, 400);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		frame.setResizable(false);
 		
 		JLabel lblInsertPin = new JLabel("Please Insert Pin");
 		lblInsertPin.setForeground(new Color(255, 255, 255));

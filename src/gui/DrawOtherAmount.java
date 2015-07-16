@@ -8,6 +8,7 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.Color;
 
 public class DrawOtherAmount {
 
@@ -42,35 +43,46 @@ public class DrawOtherAmount {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.getContentPane().setFont(new Font("Tahoma", Font.PLAIN, 50));
+		frame.getContentPane().setBackground(new Color(0, 102, 102));
 		frame.setBounds(100, 100, 600, 400);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		frame.setResizable(false);
 		
 		JLabel lblEnterAmount = new JLabel("Enter Amount");
+		lblEnterAmount.setForeground(new Color(255, 255, 255));
 		lblEnterAmount.setHorizontalAlignment(SwingConstants.CENTER);
-		lblEnterAmount.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		lblEnterAmount.setBounds(10, 11, 564, 44);
+		lblEnterAmount.setFont(new Font("Arial Black", Font.BOLD, 30));
+		lblEnterAmount.setBounds(10, 50, 574, 44);
 		frame.getContentPane().add(lblEnterAmount);
 		
 		JLabel lblNewLabel = new JLabel("$");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNewLabel.setForeground(new Color(255, 255, 255));
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 50));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(67, 112, 46, 38);
+		lblNewLabel.setBounds(37, 130, 46, 80);
 		frame.getContentPane().add(lblNewLabel);
 		
 		textField = new JTextField();
 		textField.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		textField.setBounds(101, 110, 139, 44);
+		textField.setBounds(82, 142, 415, 71);
 		frame.getContentPane().add(textField);
 		textField.setColumns(10);
 		textField.setDocument(new LimitDocument(3));
 		
 		JButton btnOk = new JButton("Ok");
-		btnOk.setBounds(84, 226, 156, 50);
+		btnOk.setBackground(new Color(0, 0, 153));
+		btnOk.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnOk.setForeground(new Color(255, 255, 255));
+		btnOk.setBounds(82, 276, 156, 50);
 		frame.getContentPane().add(btnOk);
 		
 		JButton btnCancel = new JButton("Cancel");
-		btnCancel.setBounds(338, 226, 156, 50);
+		btnCancel.setBackground(new Color(0, 0, 153));
+		btnCancel.setForeground(new Color(255, 255, 255));
+		btnCancel.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnCancel.setBounds(341, 276, 156, 50);
 		frame.getContentPane().add(btnCancel);
 	}
 

@@ -79,7 +79,7 @@ public class Main {
 		lblNewLabel_1.setForeground(Color.WHITE);
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1.setBounds(10, 115, 564, 34);
+		lblNewLabel_1.setBounds(10, 145, 564, 34);
 		frame.getContentPane().add(lblNewLabel_1);
 		
 		textField = new JTextField();
@@ -109,10 +109,14 @@ public class Main {
 		textField.setColumns(10);
 		textField.setDocument(new LimitDocument(16));
 		
-		JLabel lblNewLabel_2 = new JLabel(new ImageIcon("C:\\Users\\Dell\\Documents\\GitHub\\ATM\\src\\insert.png"));
+		JLabel lblNewLabel_2 = new JLabel(new ImageIcon("C:\\Users\\Dell\\Desktop\\insert.png"));
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_2.setBounds(33, 160, 154, 138);
 		frame.getContentPane().add(lblNewLabel_2);
+		
+		JLabel lblNewLabel_3 = new JLabel(new ImageIcon("C:\\Users\\Dell\\Desktop\\mainlogo.png"));
+		lblNewLabel_3.setBounds(197, 56, 200, 78);
+		frame.getContentPane().add(lblNewLabel_3);
 	}
 	
 	public void NewScreen() {
