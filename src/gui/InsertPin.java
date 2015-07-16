@@ -65,7 +65,7 @@ public class InsertPin {
 		frame.getContentPane().add(lblInsertPin);
 		
 		
-		JButton btnNewButton = new JButton("Enter");
+		JButton btnNewButton = new JButton("Ok");
 		btnNewButton.setForeground(Color.WHITE);
 		btnNewButton.setBackground(new Color(0, 0, 153));
 		btnNewButton.setOpaque(true);
