@@ -49,4 +49,16 @@ public class ProcessingWindow {
 		lblNewLabel.setBounds(10, 11, 574, 350);
 		frame.getContentPane().add(lblNewLabel);
 	}
+	public void NewScreen() {
+		// TODO Auto-generated method stub
+
+		EventQueue.invokeLater(new Runnable() {
+
+			public void run() {
+				// TODO Auto-generated method stub
+				ProcessingWindow processingWindow = new ProcessingWindow();
+				processingWindow.frame.setVisible(true);
+			}
+		});
+	}
 }

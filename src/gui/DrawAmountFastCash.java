@@ -74,5 +74,18 @@ public class DrawAmountFastCash {
 		btnOthers.setBounds(356, 166, 200, 50);
 		frame.getContentPane().add(btnOthers);
 	}
+	
+	public void NewScreen() {
+		// TODO Auto-generated method stub
+
+		EventQueue.invokeLater(new Runnable() {
+
+			public void run() {
+				// TODO Auto-generated method stub
+				DrawAmountFastCash drawAmountFastCash = new DrawAmountFastCash();
+				drawAmountFastCash.frame.setVisible(true);
+			}
+		});
+	}
 
 }

@@ -66,5 +66,19 @@ public class ErrorDialog {
 		frame.setBounds(100, 100, 600, 400);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
+	
+	public void NewScreen() {
+		// TODO Auto-generated method stub
+
+		EventQueue.invokeLater(new Runnable() {
+
+			public void run() {
+				// TODO Auto-generated method stub
+				ErrorDialog errorDialog = new ErrorDialog();
+				errorDialog.frame.setVisible(true);
+			}
+		});
+	}
+	
 
 }

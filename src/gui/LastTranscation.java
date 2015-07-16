@@ -68,4 +68,17 @@ public class LastTranscation {
 		btnNewButton_1.setBounds(336, 217, 156, 54);
 		frame.getContentPane().add(btnNewButton_1);
 	}
+	public void NewScreen() {
+		// TODO Auto-generated method stub
+
+		EventQueue.invokeLater(new Runnable() {
+
+			public void run() {
+				// TODO Auto-generated method stub
+				LastTranscation lastTranscation = new LastTranscation();
+				lastTranscation.frame.setVisible(true);
+			}
+		});
+	}
+
 }
