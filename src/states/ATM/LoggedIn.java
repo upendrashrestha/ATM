@@ -51,40 +51,7 @@ public class LoggedIn extends AState {
 
 		ICommand drawAmount = new DrawAmount(bankProxy, amount);
 		invoker.executeAction(drawAmount);
-		boolean isSuccess = bankProxy.isSuccess();
 
-		if (isSuccess) {
-			AMoneyCounter hundredCounter = new HundredDollar();
-			AMoneyCounter fiftyCounter = new FiftyDollar();
-			AMoneyCounter twentyCounter = new TwentyDollar();
-			AMoneyCounter tenCounter = new TenDollar();
-			AMoneyCounter fiveCounter = new FiveDollar();
-			AMoneyCounter oneCounter = new OneDollar();
-
-			hundredCounter.setNextCounter(fiftyCounter);
-			fiftyCounter.setNextCounter(twentyCounter);
-			twentyCounter.setNextCounter(tenCounter);
-			tenCounter.setNextCounter(fiveCounter);
-			fiveCounter.setNextCounter(oneCounter);
-
-			Map<MoneyElement, Integer> map = new HashMap<MoneyElement, Integer>();
-			hundredCounter.count(map, amount);
-
-			List<MoneyElement> moneyList = new ArrayList<MoneyElement>(
-					map.keySet());
-
-			System.out.println("Draw Amount");
-			System.out.println("Dollars" + "\t" + "Denominations");
-			for (MoneyElement money : moneyList) {
-
-				System.out.println(money.getClass().getSimpleName() + "\t"
-						+ map.get(money));
-
-			}
-
-		}
-
-		System.out.println("bankProxy.getBalance():" + bankProxy.getBalance());
 
 	}
 

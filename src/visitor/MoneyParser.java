@@ -8,7 +8,7 @@ import java.util.Map;
 public class MoneyParser {
 
 	
-	private Map<MoneyElement, Integer> moneyMap = new HashMap<MoneyElement, Integer>();
+	//private Map<MoneyElement, Integer> moneyMap = new HashMap<MoneyElement, Integer>();
 	
 
 	public double calculateMoney(Map<MoneyElement, Integer> moneyMap) {
@@ -24,12 +24,12 @@ public class MoneyParser {
 		return moneyVisitor.getTotalValue();
 	}
 	
-	public Map<MoneyElement, Integer> getMoneyMap() {
-		return moneyMap;
+/*		public Map<MoneyElement, Integer> getMoneyMap() {
+	return moneyMap;
 	}
 
 	public void setMoneyMap(Map<MoneyElement, Integer> moneyMap) {
 		this.moneyMap = moneyMap;
-	}
+	}*/
 	
 }
