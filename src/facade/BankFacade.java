@@ -37,7 +37,7 @@ public class BankFacade extends ABank {
 	public void depositAmount( double amount) {
 		atmCustomer = ATMCustomer.getAtmCustomer();
 		atmCustomer.getAccount().addBalance(amount);
-
+		setSuccess(true);
 
 	}
 

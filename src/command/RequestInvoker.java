@@ -4,7 +4,7 @@ import java.util.Stack;
 
 public class RequestInvoker {
 		
-	private Stack cmdStack = new Stack<ICommand>();
+	private Stack<ICommand> cmdStack = new Stack<ICommand>();
 	
 	public void executeAction(ICommand cmd)
 	{
