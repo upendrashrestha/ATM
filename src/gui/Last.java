@@ -55,7 +55,7 @@ public class Last {
 		lblNewLabel.setBounds(10, 52, 564, 33);
 		frame.getContentPane().add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("Helping Coustmers");
+		JLabel lblNewLabel_1 = new JLabel("Helping Customers");
 		lblNewLabel_1.setForeground(new Color(255, 255, 255));
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
