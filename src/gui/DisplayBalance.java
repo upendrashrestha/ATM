@@ -72,7 +72,7 @@ public class DisplayBalance {
 		lblNewLabel_3.setBounds(264, 174, 215, 50);
 		frame.getContentPane().add(lblNewLabel_3);
 		
-		JLabel lblNewLabel_4 = new JLabel("totalbalance");
+		JLabel lblNewLabel_4 = new JLabel("total balance");
 		lblNewLabel_4.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		lblNewLabel_4.setForeground(new Color(255, 255, 255));
 		lblNewLabel_4.setBounds(264, 235, 215, 40);
