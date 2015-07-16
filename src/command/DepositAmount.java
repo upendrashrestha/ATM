@@ -1,5 +1,7 @@
 package command;
 
+import general.Random;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,7 +21,7 @@ public class DepositAmount implements ICommand{
 
 	@Override
 	public void execute() {
-		Map<MoneyElement, Integer> money = new HashMap<MoneyElement, Integer>();
+		Map<MoneyElement, Integer> money = Random.generateMoneyMap();
 		
 		moneyParser.calculateMoney(money);
 	}
