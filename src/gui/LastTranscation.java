@@ -3,18 +3,25 @@ package gui;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+
 import java.awt.Color;
+
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+
 import java.awt.Font;
+
 import javax.swing.JButton;
+
+import states.ATM.ATMContext;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class LastTranscation {
 
 	private JFrame frame;
-
+	private ATMContext atmContext;
 	/**
 	 * Launch the application.
 	 */
@@ -76,8 +83,14 @@ public class LastTranscation {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				frame.dispose(); //closes the window--cannot be recovered
+				
+				atmContext = ATMContext.getInstance();
+				atmContext.ejectCard();
+				
 				Last last = new Last();
 				last.NewScreen();
+				
+				
 				
 			}
 		});

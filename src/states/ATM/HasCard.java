@@ -42,12 +42,7 @@ public class HasCard extends AState{
 		return 0;
 	}
 
-	@Override
-	public void drawAmount(ATMContext atmContext) {
-		// TODO Auto-generated method stub
-		
-	}
-
+	
 	@Override
 	public void depositAmount(ATMContext atmContext) {
 		// TODO Auto-generated method stub
@@ -87,6 +82,17 @@ public class HasCard extends AState{
 	@Override
 	public void sendSMS(ATMContext atmContext) {
 		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void drawAmount(ATMContext atmContext, Double amount) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void ejectCard(ATMContext atmContext) {
 		
 	}
 }

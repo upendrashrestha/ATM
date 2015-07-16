@@ -16,6 +16,7 @@ public abstract class AState {
 	public abstract void notifyDamage(ATMContext atmContext);
 	public abstract void notifyOutOfMoney(ATMContext atmContext);
 	public abstract void printReceipt(ATMContext atmContext);
+	public abstract void ejectCard(ATMContext atmContext);
 	public abstract void sendSMS(ATMContext atmContext);
 	
 	

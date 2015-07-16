@@ -21,7 +21,7 @@ public class Damage extends AState{
 	}
 
 	@Override
-	public void drawAmount(ATMContext atmContext) {
+	public void drawAmount(ATMContext atmContext, Double amount) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -64,6 +64,12 @@ public class Damage extends AState{
 
 	@Override
 	public void sendSMS(ATMContext atmContext) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void ejectCard(ATMContext atmContext) {
 		// TODO Auto-generated method stub
 		
 	}

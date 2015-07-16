@@ -148,6 +148,11 @@ public class ATMContext {
 	public void setDamage(AState damage) {
 		this.damage = damage;
 	}
+
+	public void ejectCard() {
+		this.currentState.ejectCard(this);
+		
+	}
 	
 	
 	

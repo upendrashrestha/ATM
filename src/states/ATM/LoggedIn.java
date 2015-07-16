@@ -70,15 +70,16 @@ public class LoggedIn extends AState {
 			Map<MoneyElement, Integer> map = new HashMap<MoneyElement, Integer>();
 			hundredCounter.count(map, amount);
 
-			List<MoneyElement> moneyList = new ArrayList<MoneyElement>(map.keySet());
-			
+			List<MoneyElement> moneyList = new ArrayList<MoneyElement>(
+					map.keySet());
+
 			System.out.println("Draw Amount");
 			System.out.println("Dollars" + "\t" + "Denominations");
 			for (MoneyElement money : moneyList) {
 
-				System.out.println(money.getClass().getSimpleName() + "\t" + map.get(money));
-				
-				
+				System.out.println(money.getClass().getSimpleName() + "\t"
+						+ map.get(money));
+
 			}
 
 		}
@@ -128,6 +129,13 @@ public class LoggedIn extends AState {
 	@Override
 	public void sendSMS(ATMContext atmContext) {
 		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void ejectCard(ATMContext atmContext) {
+
+		atmContext.setCurrentState(atmContext.getNoCard());
 
 	}
 
