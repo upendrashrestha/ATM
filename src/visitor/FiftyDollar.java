@@ -5,32 +5,30 @@ import java.util.Map;
 import chainOfResponsibility.AMoneyCounter;
 
 
-public class FiveDollar extends AMoneyCounter implements MoneyElement {
+public class FiftyDollar extends AMoneyCounter implements MoneyElement {
 
-	
-	
 	@Override
 	public void accept(IVisitor visitor, Integer number) {
-		visitor.visit(this, number);		
+		visitor.visit(this, number);
 	}
 
 	@Override
 	public double getValue() {
 		// TODO Auto-generated method stub
-		return 5;
+		return 50;
 	}
 
 	@Override
 	public void count(Map<MoneyElement, Integer> map, double amount) {
-		int numOfFive = (int) (amount / 5);
-		int remainder = (int) (amount % 5);
-		if (numOfFive > 0) {
-			map.put(new FiveDollar(), numOfFive);
-			amount = amount - numOfFive * 5;
+		int numOfFifty = (int) (amount / 50);
+		int remainder = (int) (amount % 50);
+		if (numOfFifty > 0) {
+			map.put(new FiftyDollar(), numOfFifty);
+			amount = amount - numOfFifty * 50;
 		}
 		if (this.nextCounter != null) {
 			this.nextCounter.count(map, amount);
-		}	
+		}		
 	}
 
 }

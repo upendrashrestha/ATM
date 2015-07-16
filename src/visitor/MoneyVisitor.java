@@ -10,29 +10,35 @@ public class MoneyVisitor implements IVisitor {
 	
 	double totalMoney;
 	
-	public void visit(OneDollar oneDollar) {
-		totalMoney+=oneDollar.getValue();
+	public void visit(OneDollar oneDollar, Integer number) {
+		totalMoney+=oneDollar.getValue() * number;
 	}
 
-	public void visit(FiveDollar fiveDollar) {
-		totalMoney+=fiveDollar.getValue();		
+	public void visit(FiftyDollar fiftyDollar, Integer number) {
+		totalMoney+=fiftyDollar.getValue() * number;		
 	}
 
-	public void visit(TenDollar tenDollar) {
-		totalMoney+=tenDollar.getValue();		
+	
+	public void visit(FiveDollar fiveDollar, Integer number) {
+		totalMoney+=fiveDollar.getValue()* number;		
 	}
 
-	public void visit(TwentyDollar twentyDollar) {
-		totalMoney+=twentyDollar.getValue();		
+	public void visit(TenDollar tenDollar, Integer number) {
+		totalMoney+=tenDollar.getValue()*number;		
 	}
 
-	public void visit(HundredDollar hundredDollar) {
-		totalMoney+=hundredDollar.getValue();		
+	public void visit(TwentyDollar twentyDollar, Integer number) {
+		totalMoney+=twentyDollar.getValue()*number;		
+	}
+
+	public void visit(HundredDollar hundredDollar, Integer number) {
+		totalMoney+=hundredDollar.getValue()* number;		
 	}
 	
 	public double getTotalValue()
 	{
 		return this.totalMoney;
 	}
+
 
 }
