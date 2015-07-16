@@ -45,6 +45,7 @@ public class ProcessingWindow {
 		frame.getContentPane().setLayout(null);
 		frame.setResizable(false);
 		
+		
 		JLabel lblNewLabel = new JLabel(new ImageIcon("C:\\Users\\Dell\\Desktop\\loading.gif"));
 		lblNewLabel.setBounds(10, 11, 574, 350);
 		frame.getContentPane().add(lblNewLabel);
