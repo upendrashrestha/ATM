@@ -55,14 +55,14 @@ public class Last {
 		lblNewLabel.setBounds(10, 52, 564, 33);
 		frame.getContentPane().add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("Helping Customers");
+		JLabel lblNewLabel_1 = new JLabel("Helping Customers.");
 		lblNewLabel_1.setForeground(new Color(255, 255, 255));
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setBounds(10, 226, 564, 33);
 		frame.getContentPane().add(lblNewLabel_1);
 		
-		JLabel lblNewLabel_2 = new JLabel("Please take your recipt");
+		JLabel lblNewLabel_2 = new JLabel("Please take your receipt");
 		lblNewLabel_2.setForeground(new Color(255, 255, 255));
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
