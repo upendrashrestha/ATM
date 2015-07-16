@@ -56,12 +56,13 @@ public class InsertPin {
 		frame.setBounds(100, 100, 600, 400);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		frame.setResizable(false);
 		
 		JLabel lblInsertPin = new JLabel("Please Insert Pin");
 		lblInsertPin.setForeground(new Color(255, 255, 255));
 		lblInsertPin.setHorizontalAlignment(SwingConstants.CENTER);
-		lblInsertPin.setFont(new Font("Arial Black", Font.PLAIN, 30));
-		lblInsertPin.setBounds(10, 11, 564, 50);
+		lblInsertPin.setFont(new Font("Arial Black", Font.BOLD, 30));
+		lblInsertPin.setBounds(10, 31, 564, 73);
 		frame.getContentPane().add(lblInsertPin);
 		
 		
@@ -91,13 +92,13 @@ public class InsertPin {
 		});
 		btnNewButton.setForeground(new Color(255, 255, 255));
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnNewButton.setBounds(196, 228, 200, 50);
+		btnNewButton.setBounds(196, 269, 200, 50);
 		frame.getContentPane().add(btnNewButton);
 		
 		passwordField = new JPasswordField(4);
 		passwordField.setHorizontalAlignment(SwingConstants.LEFT);
 		passwordField.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		passwordField.setBounds(196, 136, 200, 44);
+		passwordField.setBounds(196, 162, 200, 44);
 		passwordField.setDocument(new LimitDocument(4));
 		frame.getContentPane().add(passwordField);
 	}

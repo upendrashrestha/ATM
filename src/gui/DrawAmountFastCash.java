@@ -53,6 +53,7 @@ public class DrawAmountFastCash {
 		frame.setBounds(100, 100, 600, 400);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		frame.setResizable(false);
 		
 		JLabel lblNewLabel = new JLabel("Draw Cash");
 		lblNewLabel.setForeground(new Color(255, 255, 255));
@@ -67,6 +68,10 @@ public class DrawAmountFastCash {
 				double amount=20;
 				atmContext=atmContext.getInstance();
 				atmContext.drawAmount(amount);
+				
+				frame.dispose(); // closes the window--cannot be recovered
+				LastTranscation lastTrascation = new LastTranscation();
+				lastTrascation.NewScreen();
 				
 				
 			}
@@ -84,6 +89,10 @@ public class DrawAmountFastCash {
 				double amount=40;
 				atmContext=atmContext.getInstance();
 				atmContext.drawAmount(amount);
+				
+				frame.dispose(); // closes the window--cannot be recovered
+				LastTranscation lastTrascation = new LastTranscation();
+				lastTrascation.NewScreen();
 			}
 		});
 		button.setForeground(new Color(255, 255, 255));

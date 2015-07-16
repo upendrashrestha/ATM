@@ -54,6 +54,7 @@ public class LastTranscation {
 		frame.setBounds(100, 100, 600, 400);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		frame.setResizable(false);
 		
 		JLabel lblNewLabel = new JLabel("Do you want another transcation?");
 		lblNewLabel.setForeground(new Color(255, 255, 255));

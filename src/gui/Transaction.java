@@ -53,13 +53,14 @@ public class Transaction {
 		frame.setBounds(100, 100, 600, 400);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		frame.setResizable(false);
 		
 		JLabel lblNewLabel = new JLabel("Check Balance");
 		lblNewLabel.setForeground(new Color(255, 255, 255));
 		lblNewLabel.setBackground(new Color(255, 255, 255));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Arial Black", Font.BOLD, 30));
-		lblNewLabel.setBounds(10, 11, 564, 63);
+		lblNewLabel.setBounds(10, 44, 564, 63);
 		frame.getContentPane().add(lblNewLabel);
 		
 		JButton btnCheckBalance = new JButton("Check Balance");
@@ -77,7 +78,7 @@ public class Transaction {
 			}
 		});
 		btnCheckBalance.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnCheckBalance.setBounds(355, 136, 202, 50);
+		btnCheckBalance.setBounds(355, 156, 202, 50);
 		frame.getContentPane().add(btnCheckBalance);
 		
 		JButton btnDrawAmount = new JButton("Draw Amount");
@@ -86,19 +87,20 @@ public class Transaction {
 		btnDrawAmount.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
+				frame.dispose();
 				fastCash = new DrawAmountFastCash();
 				fastCash.NewScreen();
 			}
 		});
 		btnDrawAmount.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnDrawAmount.setBounds(33, 136, 202, 50);
+		btnDrawAmount.setBounds(33, 156, 202, 50);
 		frame.getContentPane().add(btnDrawAmount);
 		
 		JButton btnUtilityPayment = new JButton("Utility Payment");
-		btnUtilityPayment.setBackground(new Color(0, 0, 204));
+		btnUtilityPayment.setBackground(new Color(0, 0, 153));
 		btnUtilityPayment.setForeground(new Color(255, 255, 255));
 		btnUtilityPayment.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnUtilityPayment.setBounds(355, 228, 202, 50);
+		btnUtilityPayment.setBounds(355, 260, 202, 50);
 		frame.getContentPane().add(btnUtilityPayment);
 		
 		JButton btnDepositAmount = new JButton("Deposit Amount");
@@ -109,10 +111,11 @@ public class Transaction {
 				
 				atmContext = ATMContext.getInstance();
 				atmContext.depositAmount();
+				frame.dispose();
 			}
 		});
 		btnDepositAmount.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnDepositAmount.setBounds(33, 228, 202, 50);
+		btnDepositAmount.setBounds(33, 260, 202, 50);
 		frame.getContentPane().add(btnDepositAmount);
 	}
 
