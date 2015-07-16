@@ -54,26 +54,27 @@ public class DrawAmountFastCash {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		frame.setResizable(false);
-		
+
 		JLabel lblNewLabel = new JLabel("Draw Cash");
 		lblNewLabel.setForeground(new Color(255, 255, 255));
 		lblNewLabel.setFont(new Font("Arial Black", Font.BOLD, 30));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(10, 60, 564, 43);
 		frame.getContentPane().add(lblNewLabel);
-		
+
 		JButton btnDraw = new JButton("$20");
 		btnDraw.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				double amount=20;
 				atmContext=atmContext.getInstance();
 				atmContext.drawAmount(amount);
-				
-				frame.dispose(); // closes the window--cannot be recovered
-				LastTranscation lastTrascation = new LastTranscation();
-				lastTrascation.NewScreen();
-				
-				
+
+				double balance = atmContext.checkBalance();
+
+				frame.dispose(); //closes the window--cannot be recovered
+				DisplayBalance dispBal = new DisplayBalance();
+				dispBal.NewScreen(Double.toString(balance));
+
 			}
 		});
 		btnDraw.setBackground(new Color(0, 0, 153));
@@ -81,18 +82,21 @@ public class DrawAmountFastCash {
 		btnDraw.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnDraw.setBounds(49, 166, 200, 50);
 		frame.getContentPane().add(btnDraw);
-		
+
 		JButton button = new JButton("$40");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
+
 				double amount=40;
 				atmContext=atmContext.getInstance();
 				atmContext.drawAmount(amount);
-				
-				frame.dispose(); // closes the window--cannot be recovered
-				LastTranscation lastTrascation = new LastTranscation();
-				lastTrascation.NewScreen();
+
+				double balance = atmContext.checkBalance();
+
+				frame.dispose(); //closes the window--cannot be recovered
+				DisplayBalance dispBal = new DisplayBalance();
+				dispBal.NewScreen(Double.toString(balance));
+
 			}
 		});
 		button.setForeground(new Color(255, 255, 255));
@@ -100,11 +104,11 @@ public class DrawAmountFastCash {
 		button.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		button.setBounds(49, 254, 200, 50);
 		frame.getContentPane().add(button);
-		
+
 		JButton btnOthers = new JButton("Other");
 		btnOthers.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
+
 				frame.dispose(); //closes the window--cannot be recovered
 				DrawOtherAmount drawOthers = new DrawOtherAmount();
 				drawOthers.NewScreen();
@@ -116,7 +120,7 @@ public class DrawAmountFastCash {
 		btnOthers.setBounds(356, 166, 200, 50);
 		frame.getContentPane().add(btnOthers);
 	}
-	
+
 	public void NewScreen() {
 
 		EventQueue.invokeLater(new Runnable() {

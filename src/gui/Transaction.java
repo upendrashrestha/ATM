@@ -20,6 +20,7 @@ public class Transaction {
 	private JFrame frame;
 	private ATMContext atmContext;
 	private DrawAmountFastCash fastCash;
+	private Deposit deposit;
 
 	/**
 	 * Launch the application.
@@ -109,9 +110,12 @@ public class Transaction {
 		btnDepositAmount.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				atmContext = ATMContext.getInstance();
-				atmContext.depositAmount();
+				//atmContext = ATMContext.getInstance();
+				//atmContext.depositAmount();
 				frame.dispose();
+				messageDialog message = new messageDialog();
+				message.NewScreen();
+				
 			}
 		});
 		btnDepositAmount.setFont(new Font("Tahoma", Font.PLAIN, 20));

@@ -3,9 +3,13 @@ package gui;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+
 import java.awt.Color;
+
 import javax.swing.JLabel;
+
 import java.awt.Font;
+
 import javax.swing.SwingConstants;
 
 public class messageDialog {
@@ -59,5 +63,17 @@ public class messageDialog {
 		frame.setBounds(100, 100, 600, 400);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setResizable(false);
+	}
+	
+	public void NewScreen() {
+
+		EventQueue.invokeLater(new Runnable() {
+
+			public void run() {
+
+				messageDialog message = new messageDialog();
+				message.frame.setVisible(true);
+			}
+		});
 	}
 }

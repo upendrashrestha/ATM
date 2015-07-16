@@ -1,20 +1,8 @@
 package states.ATM;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 import proxy.atm.BankProxy;
-import visitor.FiftyDollar;
-import visitor.FiveDollar;
-import visitor.HundredDollar;
-import visitor.MoneyElement;
 import visitor.MoneyParser;
-import visitor.OneDollar;
-import visitor.TenDollar;
-import visitor.TwentyDollar;
-import chainOfResponsibility.AMoneyCounter;
 import command.CheckBalance;
 import command.DepositAmount;
 import command.DrawAmount;

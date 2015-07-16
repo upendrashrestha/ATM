@@ -4,16 +4,24 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+
 import java.awt.Font;
+
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+
+import states.ATM.ATMContext;
+
 import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Deposit {
 
 	private JFrame frame;
 	private JTextField textField;
+	private ATMContext atmContext;
 
 	/**
 	 * Launch the application.
@@ -72,11 +80,27 @@ public class Deposit {
 		textField.setDocument(new LimitDocument(2));
 		
 		JButton btnDeposit = new JButton("Deposit");
+		btnDeposit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				//double amount = Double.parseDouble(textField.getText());
+				atmContext = atmContext.getInstance();
+				atmContext.depositAmount();
+			}
+		});
 		btnDeposit.setBackground(new Color(0, 0, 153));
 		btnDeposit.setForeground(new Color(255, 255, 255));
 		btnDeposit.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnDeposit.setBounds(191, 266, 200, 50);
 		frame.getContentPane().add(btnDeposit);
 	}
+	public void NewScreen() {
 
+		EventQueue.invokeLater(new Runnable() {
+
+			public void run() {
+				Deposit deposit = new Deposit();
+				deposit.frame.setVisible(true);
+			}
+		});
+	}
 }

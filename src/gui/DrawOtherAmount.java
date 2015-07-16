@@ -86,6 +86,13 @@ public class DrawOtherAmount {
 				double amount = Double.parseDouble(textField.getText());
 				atmContext = atmContext.getInstance();
 				atmContext.drawAmount(amount);
+				
+				double balance = atmContext.checkBalance();
+
+				frame.dispose(); //closes the window--cannot be recovered
+				DisplayBalance dispBal = new DisplayBalance();
+				dispBal.NewScreen(Double.toString(balance));
+
 			}
 		});
 		btnOk.setBackground(new Color(0, 0, 153));
