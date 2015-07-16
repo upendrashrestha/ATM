@@ -45,6 +45,7 @@ public class ErrorDialog {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(0, 102, 102));
 		frame.getContentPane().setLayout(null);
+		frame.setResizable(false);
 		
 		JLabel lblNewLabel = new JLabel("Error");
 		lblNewLabel.setBounds(273, 55, 170, 49);
