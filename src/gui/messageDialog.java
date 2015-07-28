@@ -22,6 +22,7 @@ public class messageDialog {
 	static int interval;
 	static Timer timer;
 	private ATMContext atmContext;
+	DisplayBalance dispBal; 
 	
 	/**
 	 * Launch the application.
@@ -53,6 +54,7 @@ public class messageDialog {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(0, 102, 102));
 		frame.getContentPane().setLayout(null);
+		frame.setResizable(false);
 		
 		JLabel lblNewLabel = new JLabel("Message");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -87,12 +89,12 @@ public class messageDialog {
 				if(interval == 0)
 				{
 					timer.cancel();
-					frame.dispose(); //closes the window--cannot be recovered
+						
 					atmContext = ATMContext.getInstance();
 					double balance = atmContext.checkBalance();
 
-					
-					DisplayBalance dispBal = new DisplayBalance();
+					frame.dispose(); //closes the window--cannot be recovered
+					dispBal = new DisplayBalance();
 					dispBal.NewScreen(Double.toString(balance));
 				}
 
